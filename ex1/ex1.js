@@ -17,6 +17,14 @@ const grades = [
 ];
 
 function calculateGrade(point) {
+  if (point > 100) {
+    return "Invalid Point";
+  }
+
+  if (point < 0) {
+    return "Invalid Point";
+  }
+
   for (const grade of grades) {
     if (point >= grade.point) {
       return grade.grade;
