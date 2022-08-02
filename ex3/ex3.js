@@ -5,23 +5,28 @@ const resultElement = find("#result");
 const btnElement = find("#button");
 
 btnElement.addEventListener('click', e => {
+    if (!inputElement.value) {
+        resultElement.innerHTML = "Input Empty";
+        return;
+    }
+
     value = Number(inputElement.value);
     if (value === NaN) {
-        resultElement.innerHTML = 'Only positive whole numbers are allowed';
+        resultElement.innerHTML = 'Input Invalid';
         return;
     }
 
     if (value % 1 !== 0) {
-        resultElement.innerHTML = 'Only positive whole numbers are allowed';
+        resultElement.innerHTML = 'Input Invalid';
         return;
     }
 
     if (value < 0) {
-        resultElement.innerHTML = 'Only positive whole numbers are allowed';
+        resultElement.innerHTML = 'Input Invalid';
         return;
     }
 
-    resultElement.innerHTML = validateNumber(Number(inputElement.value)) || 'please enter a number';
+    resultElement.innerHTML = validateNumber(Number(inputElement.value)) || 'Input Invalid';
 });
 
 /**
@@ -43,21 +48,4 @@ function validateNumberRecursion(initial, temp, reverse) {
     reverse = reverse * 10 + mod;
     temp = Math.floor(temp / 10);
     return validateNumberRecursion(initial, temp, reverse);
-}
-
-const cases = [
-    { input: 121, output: "yes" },
-    { input: 10, output: "no" },
-    { input: 1, output: "yes" },
-    { input: 22, output: "yes" },
-];
-
-for (const cas of cases) {
-    const result = validateNumber(cas.input);
-    if (result !== cas.output) {
-        console.error(`When input ${cas.input} expected ${cas.output} but got ${result}`);
-    } else {
-        console.log("passed");
-
-    }
 }

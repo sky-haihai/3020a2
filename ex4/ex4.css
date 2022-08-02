@@ -11,7 +11,60 @@
 #container {
     height: 400px;
     width: 400px;
+    margin: 10px auto;
     position: relative;
     overflow: hidden;
-    border: solid 1px #aaa;
+    border-radius: 10px;
+    border: solid 2px lightsalmon;
+}
+
+body {
+    background-color: lightsalmon;
+}
+
+h1 {
+    font-size: 20px;
+}
+
+.title {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    align-items: center;
+    padding: 20px 10px 0 0;
+    margin: 0 auto;
+}
+
+.content {
+    width: 500px;
+    height: 500px;
+    border-radius: 30px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 10px 0 0;
+    margin: 0 auto;
+}
+
+input {
+    width: 70%;
+    height: 30px;
+    margin: 10px;
+    border: transparent 1px;
+    outline: solid 2px;
+    outline-color: lightsalmon;
+    border-radius: 5px;
+}
+
+button {
+    width: 70%;
+    height: 30px;
+    margin: 10px;
+    border: transparent 1px;
+    outline: solid 2px;
+    outline-color: lightsalmon;
+    border-radius: 5px;
+    background-color: lightsalmon;
+    color: white;
 }
