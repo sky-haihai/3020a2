@@ -1,3 +1,5 @@
+var startTime = Date.now();
+
 class Box {
     constructor() {
         this.element = document.createElement("div");
@@ -33,7 +35,8 @@ class Container {
         this.element.removeChild(element);
         console.log(this.element.children.length)
         if (this.element.children.length === 0) {
-            alert("No more boxes");
+            var delta = (Date.now() - startTime) / 1000;
+            alert("Last Child! Clear time: " + delta.toString() + "s");
         }
     }
 }
@@ -54,4 +57,5 @@ const btnElement = find("#button");
 
 btnElement.addEventListener("click", (e) => {
     container.generateBoxes(100);
+    startTime = Date.now();
 });
